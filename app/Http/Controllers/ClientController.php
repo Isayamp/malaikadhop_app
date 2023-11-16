@@ -24,7 +24,7 @@ class ClientController extends Controller
     public function create()
     {
         // Appell du formuaire d'ajout
-        
+        return view('clients.create');
     }
 
     /**
@@ -32,7 +32,24 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validation
+
+        /* $this->validate([
+            'nom_client' => 'max:50|required',
+        ]); */
+
+        $client = new Client;
+
+        $client->nom_client = $request->nom_client;
+        $client->prenom_client = $request->prenom_client;
+        $client->telephone_client = $request->telephone_client;
+        $client->email_client = $request->email_client;
+        $client->adresse_client = $request->adresse_client;
+
+        $client->save();
+
+        return redirect('clients');
+        
     }
 
     /**
@@ -64,6 +81,8 @@ class ClientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Localiser Id
+        $client = Client::find($id);
+        $client->delete();
     }
 }
