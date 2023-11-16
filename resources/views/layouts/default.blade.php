@@ -16,7 +16,7 @@
 
         <!--start page wrapper -->
         <div class="page-wrapper">
-            @yield('section')
+            @yield('content')
         </div>
         <!--end page wrapper -->
 
