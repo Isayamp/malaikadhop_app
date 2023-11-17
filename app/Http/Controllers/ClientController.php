@@ -34,9 +34,13 @@ class ClientController extends Controller
     {
         // Validation
 
-        /* $this->validate([
-            'nom_client' => 'max:50|required',
-        ]); */
+        $request->validate([
+            'nom_client' => 'required',
+            'prenom_client' => 'required',
+            'telephone_client' => 'unique:clients,telephone_client|max:13',
+            'email_client' => 'unique:clients,telephone_client|max:50|email',
+            'adresse_client' => 'required',
+        ]);
 
         $client = new Client;
 
@@ -48,7 +52,7 @@ class ClientController extends Controller
 
         $client->save();
 
-        return redirect('clients');
+        return redirect(route('clients', ));
         
     }
 
@@ -65,7 +69,10 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // et by Id
+        $client = Client::findOrfail($id);        
+        // Applem du formulaire
+        return view('clients.edit', compact('client'));
     }
 
     /**
@@ -73,7 +80,27 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validation
+
+        $request->validate([
+            'nom_client' => 'required',
+            'prenom_client' => 'required',
+            'telephone_client' => 'unique:clients,telephone_client|max:13',
+            'email_client' => 'unique:clients,telephone_client|max:50|email',
+            'adresse_client' => 'required',
+        ]);
+
+        $client = Client::findOrfail($id); 
+
+        $client->nom_client = $request->get('nom_client');
+        $client->prenom_client = $request->get('prenom_client');
+        $client->telephone_client = $request->get('telephone_client');
+        $client->email_client = $request->get('email_client');
+        $client->adresse_client = $request->get('adresse_client');
+
+        $client->save();
+
+        return redirect(route('clients', ));
     }
 
     /**
@@ -84,5 +111,6 @@ class ClientController extends Controller
         // Localiser Id
         $client = Client::find($id);
         $client->delete();
+        return redirect()->route('produits.index')->with('success', 'Produit supprimé avec succès.');
     }
 }
