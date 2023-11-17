@@ -53,38 +53,46 @@
                                 <label for="inputLastName1" class="form-label">Prénom</label>
                                 <div class="input-group"> <span class="input-group-text bg-transparent"><i
                                             class='bx bxs-user'></i></span>
-                                    <input name="prenom_client" maxlength="50" type="text" class="form-control border-start-0" id="inputLastName1"
-                                        placeholder="Magambo" required />
+                                    <input name="prenom_client" maxlength="50" type="text"
+                                        class="form-control border-start-0" id="inputLastName1" placeholder="Magambo"
+                                         />
+                                    @error('prenom_client')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label for="inputLastName2" class="form-label">Nom</label>
                                 <div class="input-group"> <span class="input-group-text bg-transparent"><i
                                             class='bx bxs-user'></i></span>
-                                    <input name="nom_client" type="text" class="form-control border-start-0" id="inputLastName2"
-                                        placeholder="Tulinabintu" required />
+                                    <input name="nom_client" type="text" class="form-control border-start-0"
+                                        id="inputLastName2" placeholder="Tulinabintu" />
+                                        @error('nom_client_client')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label for="inputPhoneNo" class="form-label">Téléphone</label>
                                 <div class="input-group"> <span class="input-group-text bg-transparent"><i
                                             class='bx bxs-microphone'></i></span>
-                                    <input name="telephone_client" type="tel" class="form-control border-start-0" id="inputPhoneNo"
-                                        placeholder="+243991234543" />
+                                    <input name="telephone_client" type="tel" class="form-control border-start-0"
+                                        id="inputPhoneNo" placeholder="+243991234543" />
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label for="inputEmailAddress" class="form-label">E-mail</label>
                                 <div class="input-group"> <span class="input-group-text bg-transparent"><i
                                             class='bx bxs-message'></i></span>
-                                    <input name="email_client" type="email" class="form-control border-start-0" id="inputEmailAddress"
-                                        placeholder="Email Address" />
+                                    <input name="email_client" type="email" class="form-control border-start-0"
+                                        id="inputEmailAddress" placeholder="Email Address" />
                                 </div>
                             </div>
-                            
+
                             <div class="col-12">
                                 <label for="inputAddress3" class="form-label">Address</label>
-                                <textarea name="adresse_client" class="form-control" id="inputAddress3" placeholder="Enter Address" rows="3" required></textarea>
+                                <textarea name="adresse_client" class="form-control" id="inputAddress3" placeholder="Enter Address" rows="3"
+                                    required></textarea>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-danger px-5">Eregistrer</button>
