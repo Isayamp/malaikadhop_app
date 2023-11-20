@@ -42,7 +42,7 @@
                         <tbody>
                             @foreach ($clients as $client)
                                 <tr>
-                                    <td>{{ $client->id }}</td>
+                                    <td>{{ $counter++ }}</td>
                                     <td>{{ $client->nom_client }}</td>
                                     <td>{{ $client->prenom_client }}</td>
                                     <td>{{ $client->adresse_client }}</td>
@@ -57,7 +57,7 @@
                                                     class="bx bxs-trash"></i></button>
                                         </form>
                                         <div class="d-flex order-actions"> 
-                                            <a href="javascript:;" class="ms-4 text-primary bg-light-primary border-0"><i
+                                            <a href="{{ route('clients.edit', $client->id) }}" class="ms-4 text-primary bg-light-primary border-0"><i
                                                     class="bx bxs-edit"></i></a>
                                         </div>
                                     </td>
