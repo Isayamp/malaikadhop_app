@@ -20,7 +20,7 @@
             <ul>
                 <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Clients</a>
                 </li>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Produits</a>
+                <li> <a href="{{ route('produits.index') }}"><i class="bx bx-right-arrow-alt"></i>Produits</a>
                 </li>
                 <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Ventes</a>
                 </li>
