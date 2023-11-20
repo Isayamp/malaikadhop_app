@@ -14,8 +14,10 @@ class ClientController extends Controller
     {
         //Cherger les donner 
         $clients = Client::all();
+
+        $counter = 1;
         
-        return view('clients.index', compact('clients'));
+        return view('clients.index', compact('clients', 'counter'));
     }
 
     /**
@@ -100,7 +102,7 @@ class ClientController extends Controller
 
         $client->save();
 
-        return redirect(route('clients', ));
+        return redirect()->route('clients.index');
     }
 
     /**
