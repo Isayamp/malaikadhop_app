@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Spatie\FlareClient\Http\Client;
 
 class ProduitController extends Controller
 {
@@ -33,7 +35,21 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validation
+        $request->validate([
+            'designation_produit' => 'required|alpha_num|',
+            'description_produit' => 'alpha_num|min:2|max:100',
+            'datedexpiration_produit' => 'date|after:tomorrow',
+            'prix' => 'required_produit',
+        ]);
+
+        // Création d'une nouvelle instance
+        $client = Client::create($request-all);
+
+        // Créeer et en régister dans la DB
+        
+        /* Retour vers l'index */
+        return redirect('clients.index')->with('success', 'Produit enrégistré !');
     }
 
     /**
