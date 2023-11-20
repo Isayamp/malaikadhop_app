@@ -24,10 +24,10 @@
                 </li>
                 <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Ventes</a>
                 </li>
-                {{-- <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Alternate</a>
+                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Stock</a>
                 </li>
-                <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Hospitality</a> --}}
-                </li>
+                {{-- <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Hospitality</a>
+                </li> --}}
             </ul>
         <li>
             <a href="https://emotouchgroup.com" target="_blank">
