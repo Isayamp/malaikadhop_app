@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -11,7 +12,12 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        // Charger les prosuits
+        $produits = Produit::all();
+        $counter = 1;
+
+        /* Afficher les prosuits dans index */
+        return view('produits.index', compact('produits', 'counter'));
     }
 
     /**
