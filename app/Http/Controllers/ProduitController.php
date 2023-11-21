@@ -42,12 +42,12 @@ class ProduitController extends Controller
         ]);
 
         // Création d'une nouvelle instance
-        $client = Produit::create($request->all());
+        $produit = Produit::create($request->all());
 
         // Créeer et en régister dans la DB
         
         /* Retour vers l'index */
-        return redirect('clients.index')->with('success', 'Produit enrégistré !');
+        return redirect('produits.index')->with('success', 'Produit enrégistré !');
     }
 
     /**
@@ -71,7 +71,22 @@ class ProduitController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Validation
+        $request->validate([
+            'designation_produit' => 'required|alpha_num|',
+            'description_produit' => 'alpha_num|min:2|max:100',
+            'datedexpiration_produit' => 'date|after:tomorrow',
+            'prix' => 'required_produit',
+        ]);
+
+        // Selectionner l'élément par son Id
+        $produit = Produit::findOrFail($id);
+
+        // Mettre à jour
+        $produit->update($request->all()); 
+        
+        /* Retour vers l'index */
+        return redirect('clients.index')->with('success', 'Produit Modifié !');
     }
 
     /**
@@ -79,6 +94,6 @@ class ProduitController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 }
