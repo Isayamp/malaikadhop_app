@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produit;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
-use Spatie\FlareClient\Http\Client;
 
 class ProduitController extends Controller
 {
@@ -44,7 +42,7 @@ class ProduitController extends Controller
         ]);
 
         // Création d'une nouvelle instance
-        $client = Client::create($request-all);
+        $client = Produit::create($request->all());
 
         // Créeer et en régister dans la DB
         
