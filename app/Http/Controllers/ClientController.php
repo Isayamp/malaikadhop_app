@@ -54,7 +54,7 @@ class ClientController extends Controller
 
         $client->save();
 
-        return redirect(route('clients', ));
+        return redirect(route('clients'));
         
     }
 
