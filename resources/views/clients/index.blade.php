@@ -67,14 +67,14 @@
 
                         </tbody>
                         <tfoot>
-                            <tr>
+                            {{-- <tr>
                                 <th>Name</th>
                                 <th>Position</th>
                                 <th>Office</th>
                                 <th>Age</th>
                                 <th>Start date</th>
                                 <th>Salary</th>
-                            </tr>
+                            </tr> --}}
                         </tfoot>
                     </table>
                 </div>
